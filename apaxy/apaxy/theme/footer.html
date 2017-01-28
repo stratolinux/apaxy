@@ -1,5 +1,5 @@
 	<div class="block">
-		You can add your own HTML above or below the directory listing. Simply explore the <code>header.html</code> and <code>footer.html</code> files.
+		<!-- add your own footer text here -->
 	</div><!--/.postlisting-->
 
 </div><!--/.wrapper-->
@@ -17,7 +17,7 @@ if (uri.substring(uri.length-1) != '/'){
 	i = indexes.length;
 	while (i--){
 	    var a = indexes[i].getElementsByTagName('a')[0];
-	    a.href = '/' + uri + '/' + a.getAttribute('href',2);
+	    a.href = '.' + uri + '/' + a.getAttribute('href',2);
 	}
 }
 </script>

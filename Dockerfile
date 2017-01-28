@@ -1,6 +1,12 @@
 # Use phusion/baseimage as base image. (using latest is bad)
 FROM phusion/baseimage:latest
 
+# shared volume
+VOLUME ["/samba"]
+# ports needed
+EXPOSE 80
+
+
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
@@ -8,7 +14,6 @@ CMD ["/sbin/my_init"]
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 RUN apt-get install -y -o Dpkg::Options::="--force-confold" apache2 samba samba-client samba-common
 
-RUN  mkdir /samba && chmod -R 0755 /samba
 
 COPY etc/ /etc/
 
