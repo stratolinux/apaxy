@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+
+SOURCE="/root/apaxy"
+TARGET="/samba"
+
+if [ ! -f "${TARGET}/.htaccess" ]; then
+   cp -R "${SOURCE}/htaccess.txt" "${TARGET}/.htaccess"
+fi
+
+if [ ! -d "${TARGET}/theme" ]; then
+   cp -R "${SOURCE}/theme" "${TARGET}"
+fi
+
+exit 0

@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+ROOTDIR="/samba"
+DELAY=1800
+SHAFILE="SHA256SUMS"
+
+echo "Starting sha256sum generation script"
+while [ 1 -eq 1 ]; do
+  if [ -d "${ROOTDIR}" ]; then
+    #change to the proper directory
+    cd "${ROOTDIR}"
+    # generate the SHA256SUMS files
+    find . -type d -exec sh -c "cd {}; sha256sum -b * > ${SHAFILE}" \;
+    find . -name "${SHAFILE}" -exec sed -i '/SHA256SUMS/d' {} \;
+    find . -name "${SHAFILE}" -size 0 -exec rm {} \;
+
+    # make sure the ownership on these files is correct
+    chmod -R 0755 "${ROOTDIR}"
+    # chown -R nobody:nobody "${ROOTDIR}"
+  fi
+
+  # sleep until the next time
+  echo ".... sleeping"
+  sleep ${DELAY}
+done
