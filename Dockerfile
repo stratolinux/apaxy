@@ -1,5 +1,5 @@
 # Use phusion/baseimage as base image. (using latest is bad)
-FROM phusion/baseimage:latest
+FROM stratolinux/baseimage-docker:0.9.19
 
 # shared volume
 VOLUME ["/samba"]
