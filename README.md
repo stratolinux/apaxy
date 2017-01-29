@@ -1,1 +1,1 @@
-# strato-apaxy
+# stratolinux apaxy
