@@ -10,7 +10,7 @@ while [ 1 -eq 1 ]; do
     #change to the proper directory
     cd "${ROOTDIR}"
     # generate the SHA256SUMS files
-    find . -type d -exec sh -c "cd {}; sha256sum -b * > ${SHAFILE}" \;
+    find . -type d -exec sh -c "cd \"{}\"; sha256sum -b * > ${SHAFILE}" \;
     find . -name "${SHAFILE}" -exec sed -i '/SHA256SUMS/d' {} \;
     find . -name "${SHAFILE}" -size 0 -exec rm {} \;
 
