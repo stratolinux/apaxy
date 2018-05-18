@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ROOTDIR="/samba"
-DELAY=1800
+DELAY=14400
 SHAFILE="SHA256SUMS"
 
 echo "Starting sha256sum generation script"
